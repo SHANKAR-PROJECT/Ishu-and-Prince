@@ -1,3 +1,207 @@
-<body style="display:flex;justify-content:center;align-items:center;height:100vh;background:#000;color:#fff;font-size:50px;font-family:sans-serif;">
-  Sorry
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prince 💍 Nitya</title>
+  <link rel="icon" href="img/heart.svg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style/style.css"/>
+</head>
+<body>
+
+<!-- Floating hearts canvas -->
+<canvas id="hearts"></canvas>
+
+<!-- Audio -->
+<audio id="bgMusic" src="https://media.vocaroo.com/mp3/1jHrq2CGxZAW" loop preload="none"></audio>
+
+<!-- ═══════════════════════════════════
+     OVERLAY
+═══════════════════════════════════ -->
+<div id="overlay" class="overlay">
+  <div class="ov-box">
+    <div class="ov-ring">
+      <div class="ov-heart-big">❤️</div>
+    </div>
+    <h1 class="ov-name">Prince <em>&amp;</em> Nitya</h1>
+    <p class="ov-tagline">Ek dil ki ek khaas baat...</p>
+    <button id="startBtn" class="start-btn">
+      <span class="btn-icon">💌</span>
+      <span class="btn-text">Shuru Karo</span>
+    </button>
+    <p class="ov-note">tap karo aur dekho jaadu ✨</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     SCENES
+═══════════════════════════════════ -->
+<div id="stage">
+
+  <!-- SCENE 1 · Opening Title -->
+  <div class="scene" id="sc1">
+    <div class="sc-inner">
+      <p class="pre-title reveal-up d1">Dil ke kisi kone se...</p>
+      <h2 class="big-title reveal-up d2">Meri<br/><span class="name-glow">Nitya</span></h2>
+      <p class="small-sub reveal-up d3">tumhare liye yeh khaas lamha hai 🌹</p>
+    </div>
+  </div>
+
+  <!-- SCENE 2 · Shayri I -->
+  <div class="scene" id="sc2">
+    <div class="sc-inner">
+      <div class="shayri-card reveal-scale">
+        <div class="shayri-ornament">✦</div>
+        <p class="shayri-line sl1 reveal-up d1">"Tum kali ho andheron ki,</p>
+        <p class="shayri-line sl2 reveal-up d2"> Laal gulab sa rang tumhara,</p>
+        <p class="shayri-line sl3 reveal-up d3"> Koi nahi is duniya mein,</p>
+        <p class="shayri-line sl4 reveal-up d4"> Jo ho jaaye tum sa pyara..."</p>
+        <div class="shayri-ornament flip">✦</div>
+        <p class="shayri-by reveal-up d5">— Prince Malhotra 🖤</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 3 · Feeling -->
+  <div class="scene" id="sc3">
+    <div class="sc-inner">
+      <p class="feeling reveal-up d1">Socha tha kab tha koi aisa aayega...</p>
+      <p class="feeling reveal-up d2">Jo meri duniya roshan kar jayega...</p>
+      <p class="feeling reveal-up d3">Tum aayi aur meri zindagi badal gayi.</p>
+      <div class="divider-rose reveal-up d4">🌹 🌹 🌹</div>
+    </div>
+  </div>
+
+  <!-- SCENE 4 · Love letter -->
+  <div class="scene" id="sc4">
+    <div class="sc-inner">
+      <div class="letter-wrap reveal-scale">
+        <div class="letter-header">
+          <span class="lh-dot"></span><span class="lh-dot"></span><span class="lh-dot"></span>
+          <span class="lh-name">💬 Prince</span>
+        </div>
+        <p class="letter-text" id="letterText"></p>
+        <div class="letter-cursor" id="letterCursor">|</div>
+        <span class="letter-send">✔✔</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 5 · Shayri lines one by one -->
+  <div class="scene" id="sc5">
+    <div class="sc-inner sc5-inner">
+      <p class="s5line" id="s5l1">❝ Mohabbat karna seekha tumse...</p>
+      <p class="s5line" id="s5l2">Dard bhi tumse hi sehna seekha...</p>
+      <p class="s5line" id="s5l3">Har subah tera chehra yaad aata hai,</p>
+      <p class="s5line" id="s5l4">Har raat tere sapne lekar sota hoon... ❞</p>
+    </div>
+  </div>
+
+  <!-- SCENE 6 · BIG WORDS -->
+  <div class="scene" id="sc6">
+    <div class="sc-inner">
+      <p class="big-words-pre reveal-up d1">Nitya,</p>
+      <div class="big-words">
+        <span class="bw reveal-pop d1">Tum</span>
+        <span class="bw reveal-pop d2">Ho</span>
+        <span class="bw reveal-pop d3">Meri</span>
+        <span class="bw reveal-pop d4">Duniya</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 7 · Photo 1 -->
+  <div class="scene" id="sc7">
+    <div class="sc-inner">
+      <div class="photo-frame reveal-photo">
+        <img src="img/photo-1.jpg" alt="Prince & Nitya" class="photo-img"/>
+      </div>
+      <p class="photo-caption reveal-up d3">Yeh pal, yeh khwab — sab tumhara hai 🌹</p>
+    </div>
+  </div>
+
+  <!-- SCENE 7b · Photo 2 -->
+  <div class="scene" id="sc7b">
+    <div class="sc-inner">
+      <div class="photo-frame reveal-photo">
+        <img src="img/photo-2.png" alt="Prince & Nitya" class="photo-img"/>
+      </div>
+      <p class="photo-caption reveal-up d3">Tum ho toh har raat khoobsurat lagti hai 🕯️</p>
+    </div>
+  </div>
+
+  <!-- SCENE 7c · Photo 3 -->
+  <div class="scene" id="sc7c">
+    <div class="sc-inner">
+      <div class="photo-frame reveal-photo">
+        <img src="img/photo-3.jpg" alt="Prince & Nitya" class="photo-img"/>
+      </div>
+      <p class="photo-caption reveal-up d3">Sirf teri aankhon mein doobna chahta hoon 💫</p>
+    </div>
+  </div>
+
+  <!-- SCENE 8 · Photo 4 -->
+  <div class="scene" id="sc8">
+    <div class="sc-inner">
+      <div class="photo-frame reveal-photo">
+        <img src="img/photo-4.png" alt="Prince & Nitya" class="photo-img"/>
+      </div>
+      <p class="photo-caption reveal-up d3">Prince Weds Nitya — Hamesha ke liye 💍</p>
+    </div>
+  </div>
+
+  <!-- SCENE 8b · Photo 5 -->
+  <div class="scene" id="sc8b">
+    <div class="sc-inner">
+      <div class="photo-frame reveal-photo">
+        <img src="img/photo-5.jpg" alt="Prince & Nitya" class="photo-img"/>
+      </div>
+      <p class="photo-caption reveal-up d3">Tere bina yeh duniya adhoori hai meri 💖</p>
+    </div>
+  </div>
+
+  <!-- SCENE 8c · Photo 6 -->
+  <div class="scene" id="sc8c">
+    <div class="sc-inner">
+      <div class="photo-frame reveal-photo">
+        <img src="img/photo-6.jpg" alt="Prince & Nitya" class="photo-img"/>
+      </div>
+      <p class="photo-caption reveal-up d3">Yeh gulab teri tarah hi pyara hai 🌹</p>
+    </div>
+  </div>
+
+  <!-- SCENE 9 · Proposal -->
+  <div class="scene" id="sc9">
+    <div class="sc-inner">
+      <div id="floatingHearts" class="floating-hearts"></div>
+      <p class="proposal-pre reveal-up d1">Nitya,</p>
+      <h2 class="proposal-text reveal-up d2">Kya tum mujhse<br/><span>Shaadi Karogi?</span></h2>
+      <p class="proposal-ring reveal-pop d3">💍</p>
+      <p class="proposal-sub reveal-up d4">Mere saath har zindagi bitaogi?</p>
+    </div>
+  </div>
+
+  <!-- SCENE 10 · Final -->
+  <div class="scene" id="sc10">
+    <div class="sc-inner">
+      <div class="final-shayri reveal-up d1">
+        <p>❝ Tum bin adhoori hai yeh zindagi meri,</p>
+        <p>Tum ho toh hai duniya puri meri. ❞</p>
+      </div>
+      <p class="final-sign reveal-up d2">— Tumhara Prince Malhotra 🖤🌹</p>
+      <button class="replay-btn reveal-up d3" id="replayBtn">↺ Phir se dekhna hai</button>
+      <a href="chat.html" class="chat-cta reveal-up d4">
+        <img src="img/prince-dp.jpg" class="chat-cta-dp" alt="Prince"/>
+        <span>Prince se baat karo 💬</span>
+      </a>
+    </div>
+  </div>
+
+</div><!-- end #stage -->
+
+<script src="script/main.js"></script>
 </body>
+                                                                     </html>
