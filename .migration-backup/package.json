@@ -1,0 +1,14 @@
+{
+  "name": "happy-Valentine",
+  "version": "1.0.0",
+  "description": "Prince & Nitya — Romantic Proposal + AI Chat",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {},
+  "license": "MIT"
+}
