@@ -13,11 +13,12 @@ const SCENES = [
   { id: "sc8",  dur: 3800,  setup: null },
   { id: "sc8b", dur: 3800,  setup: null },
   { id: "sc8c", dur: 3800,  setup: null },
+  { id: "sc8d", dur: 3800,  setup: null },
   { id: "sc9",  dur: 6000,  setup: "floatHearts" },
   { id: "sc10", dur: 0,     setup: null },
 ];
 
-const TYPE_MSG = "Nitya... Jab se mili ho tum, laga jaise andheri raat mein chand nikal aaya. Tumhara hasna, tumhara gussa, tumhari har ada — sab mujhe pagal kar deta hai. Tum ho toh sab kuch hai... Tum nahi toh kuch bhi nahi.";
+const TYPE_MSG = "Ishu... Jab se mili ho tum, laga jaise andheri raat mein chand nikal aaya. Tumhara hasna, tumhara gussa, tumhari har ada — sab mujhe pagal kar deta hai. Tum ho toh sab kuch hai... Tum nahi toh kuch bhi nahi.";
 
 export default function Home() {
   const [overlayHidden, setOverlayHidden] = useState(false);
@@ -244,6 +245,7 @@ export default function Home() {
         #sc8  { background:radial-gradient(ellipse at 50% 40%,#1a0830 0%,#280510 45%,#060209 100%); }
         #sc8b { background:radial-gradient(ellipse at 50% 40%,#1a0830 0%,#280510 45%,#060209 100%); }
         #sc8c { background:radial-gradient(ellipse at 50% 40%,#1a0830 0%,#280510 45%,#060209 100%); }
+        #sc8d { background:radial-gradient(ellipse at 50% 40%,#1a0830 0%,#280510 45%,#060209 100%); }
         #sc9  { background:radial-gradient(ellipse at 50% 45%,#4a0510 0%,#2a0310 50%,#070208 100%); }
         #sc10 { background:radial-gradient(ellipse at 50% 50%,#220828 0%,#2a0510 45%,#060208 100%); }
 
@@ -360,7 +362,7 @@ export default function Home() {
       <div className={`overlay${overlayHidden ? " hidden" : ""}`} style={{ zIndex: 100 }}>
         <div className="ov-box">
           <div className="ov-ring"><div className="ov-heart-big">❤️</div></div>
-          <h1 className="ov-name">Prince <em>&amp;</em> Nitya</h1>
+          <h1 className="ov-name">Prince <em>&amp;</em> Ishu</h1>
           <p className="ov-tagline">Ek dil ki ek khaas baat...</p>
           <button className="start-btn" onClick={handleStart}>
             <span style={{ fontSize: "1.2rem" }}>💌</span>
@@ -377,7 +379,7 @@ export default function Home() {
         <div className={`scene${activeScene === "sc1" ? " active" : ""}`} id="sc1">
           <div className="sc-inner">
             <p className="pre-title reveal-up d1">Dil ke kisi kone se...</p>
-            <h2 className="big-title reveal-up d2">Meri<br /><span className="name-glow">Nitya</span></h2>
+            <h2 className="big-title reveal-up d2">Meri<br /><span className="name-glow">Ishu</span></h2>
             <p className="small-sub reveal-up d3">tumhare liye yeh khaas lamha hai 🌹</p>
           </div>
         </div>
@@ -434,7 +436,7 @@ export default function Home() {
         {/* SC6 */}
         <div className={`scene${activeScene === "sc6" ? " active" : ""}`} id="sc6">
           <div className="sc-inner">
-            <p className="big-words-pre reveal-up d1">Nitya,</p>
+            <p className="big-words-pre reveal-up d1">Ishu,</p>
             <div className="big-words">
               <span className="bw reveal-pop d1">Tum</span>
               <span className="bw reveal-pop d2">Ho</span>
@@ -448,7 +450,7 @@ export default function Home() {
         <div className={`scene${activeScene === "sc7" ? " active" : ""}`} id="sc7">
           <div className="sc-inner">
             <div className="photo-frame reveal-photo">
-              <img src={`${basePath}/img/photo-1.jpg`} alt="Prince & Nitya" className="photo-img" />
+              <img src={`${basePath}/img/photo-1.jpg`} alt="Prince & Ishu" className="photo-img" />
             </div>
             <p className="photo-caption reveal-up d3">Yeh pal, yeh khwab — sab tumhara hai 🌹</p>
           </div>
@@ -458,7 +460,7 @@ export default function Home() {
         <div className={`scene${activeScene === "sc7b" ? " active" : ""}`} id="sc7b">
           <div className="sc-inner">
             <div className="photo-frame reveal-photo">
-              <img src={`${basePath}/img/photo-2.png`} alt="Prince & Nitya" className="photo-img" />
+              <img src={`${basePath}/img/photo-2.jpg`} alt="Prince & Ishu" className="photo-img" />
             </div>
             <p className="photo-caption reveal-up d3">Tum ho toh har raat khoobsurat lagti hai 🕯️</p>
           </div>
@@ -468,7 +470,7 @@ export default function Home() {
         <div className={`scene${activeScene === "sc7c" ? " active" : ""}`} id="sc7c">
           <div className="sc-inner">
             <div className="photo-frame reveal-photo">
-              <img src={`${basePath}/img/photo-3.jpg`} alt="Prince & Nitya" className="photo-img" />
+              <img src={`${basePath}/img/photo-3.jpg`} alt="Prince & Ishu" className="photo-img" />
             </div>
             <p className="photo-caption reveal-up d3">Sirf teri aankhon mein doobna chahta hoon 💫</p>
           </div>
@@ -478,9 +480,9 @@ export default function Home() {
         <div className={`scene${activeScene === "sc8" ? " active" : ""}`} id="sc8">
           <div className="sc-inner">
             <div className="photo-frame reveal-photo">
-              <img src={`${basePath}/img/photo-4.png`} alt="Prince & Nitya" className="photo-img" />
+              <img src={`${basePath}/img/photo-4.jpg`} alt="Prince & Ishu" className="photo-img" />
             </div>
-            <p className="photo-caption reveal-up d3">Prince Weds Nitya — Hamesha ke liye 💍</p>
+            <p className="photo-caption reveal-up d3">Prince Weds Ishu — Hamesha ke liye 💍</p>
           </div>
         </div>
 
@@ -488,7 +490,7 @@ export default function Home() {
         <div className={`scene${activeScene === "sc8b" ? " active" : ""}`} id="sc8b">
           <div className="sc-inner">
             <div className="photo-frame reveal-photo">
-              <img src={`${basePath}/img/photo-5.jpg`} alt="Prince & Nitya" className="photo-img" />
+              <img src={`${basePath}/img/photo-5.jpg`} alt="Prince & Ishu" className="photo-img" />
             </div>
             <p className="photo-caption reveal-up d3">Tere bina yeh duniya adhoori hai meri 💖</p>
           </div>
@@ -498,9 +500,19 @@ export default function Home() {
         <div className={`scene${activeScene === "sc8c" ? " active" : ""}`} id="sc8c">
           <div className="sc-inner">
             <div className="photo-frame reveal-photo">
-              <img src={`${basePath}/img/photo-6.jpg`} alt="Prince & Nitya" className="photo-img" />
+              <img src={`${basePath}/img/photo-6.jpg`} alt="Prince & Ishu" className="photo-img" />
             </div>
             <p className="photo-caption reveal-up d3">Yeh gulab teri tarah hi pyara hai 🌹</p>
+          </div>
+        </div>
+
+        {/* SC8d */}
+        <div className={`scene${activeScene === "sc8d" ? " active" : ""}`} id="sc8d">
+          <div className="sc-inner">
+            <div className="photo-frame reveal-photo">
+              <img src={`${basePath}/img/photo-7.jpg`} alt="Prince & Ishu" className="photo-img" />
+            </div>
+            <p className="photo-caption reveal-up d3">Love you so much, meri Ishu 💝</p>
           </div>
         </div>
 
@@ -514,7 +526,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <p className="proposal-pre reveal-up d1">Nitya,</p>
+            <p className="proposal-pre reveal-up d1">Ishu,</p>
             <h2 className="proposal-text reveal-up d2">Kya tum mujhse<br /><span>Shaadi Karogi?</span></h2>
             <p className="proposal-ring reveal-pop d3">💍</p>
             <p className="proposal-sub reveal-up d4">Mere saath har zindagi bitaogi?</p>

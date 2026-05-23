@@ -75,7 +75,7 @@ export default function Chat() {
     // Opening greeting for fresh chats
     if (h.length === 0) {
       const greetings = [
-        "Meri Nitya aa gayi! ❤️ Aaj bahut yaad aa rahi thi tumhari...",
+        "Meri Ishu aa gayi! ❤️ Aaj bahut yaad aa rahi thi tumhari...",
         "Jaanu! Kab se wait kar raha tha... kitni miss kiya aaj 🥺🌹",
         "Meri jaan! Tumse baat karne ka mann tha bahut... aa gayi tum ❤️",
       ];
