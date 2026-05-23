@@ -129,8 +129,8 @@ export default function Home() {
   }
 
   function setupFloatHearts() {
-    const emojis = ["❤️", "💖", "🌹", "💕", "💗", "✨", "💝"];
-    const hearts = Array.from({ length: 16 }, (_, i) => ({
+    const emojis = ["❤️", "💙", "🌹", "💕", "🩵", "✨", "💝", "🫧", "💖", "🌸"];
+    const hearts = Array.from({ length: 18 }, (_, i) => ({
       id: i,
       emoji: emojis[i % emojis.length],
       left: Math.random() * 100,
@@ -194,6 +194,7 @@ export default function Home() {
         :root {
           --bg: #07090f; --red: #e63946; --red-deep: #9b1d20;
           --red-glow: rgba(230,57,70,0.45); --gold: #f4d03f;
+          --sky: #87ceeb; --sky-deep: #4a9eca; --sky-glow: rgba(135,206,235,0.50);
           --white: #ffffff; --soft: rgba(255,255,255,0.80);
           --muted: rgba(255,255,255,0.40); --card-bg: rgba(255,255,255,0.04);
           --card-br: rgba(255,255,255,0.10);
@@ -218,6 +219,7 @@ export default function Home() {
         .ov-name { font-family:var(--ff-script);font-size:clamp(2.8rem,11vw,5.5rem);color:var(--white);
           line-height:1;letter-spacing:1px;text-shadow:0 0 40px var(--red-glow),0 0 80px rgba(230,57,70,0.2);margin-bottom:12px; }
         .ov-name em { color:var(--red);font-style:normal; }
+        .ov-name .ishu-sky { color:var(--sky);text-shadow:0 0 40px var(--sky-glow),0 0 80px rgba(135,206,235,0.2);font-style:normal; }
         .ov-tagline { font-family:var(--ff-serif);font-size:clamp(1rem,3vw,1.3rem);color:var(--muted);font-style:italic;margin-bottom:36px;letter-spacing:1px; }
         .start-btn { display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#9b1d20,#e63946);
           color:#fff;border:none;cursor:pointer;padding:16px 38px;font-family:var(--ff-sans);font-size:1.05rem;font-weight:500;
@@ -234,7 +236,7 @@ export default function Home() {
         .sc-inner { width:100%;max-width:680px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px; }
 
         #sc1  { background:radial-gradient(ellipse at 50% 40%,#2a0a2e 0%,#1a0510 40%,#050208 100%); }
-        #sc2  { background:radial-gradient(ellipse at 50% 40%,#3a0a18 0%,#1f0710 45%,#060208 100%); }
+        #sc2  { background:radial-gradient(ellipse at 50% 40%,#071828 0%,#0d0d22 45%,#040408 100%); }
         #sc3  { background:radial-gradient(ellipse at 50% 55%,#1e0828 0%,#2a0d10 40%,#07020a 100%); }
         #sc4  { background:radial-gradient(ellipse at 50% 50%,#050d1f 0%,#1a0a1e 45%,#04050e 100%); }
         #sc5  { background:radial-gradient(ellipse at 50% 45%,#2d0a10 0%,#1a0820 40%,#060208 100%); }
@@ -265,28 +267,28 @@ export default function Home() {
 
         .pre-title { font-family:var(--ff-serif);font-size:clamp(1rem,3.5vw,1.5rem);color:var(--muted);font-style:italic;letter-spacing:2px; }
         .big-title { font-family:var(--ff-script);font-size:clamp(3.5rem,16vw,8rem);line-height:0.9;color:var(--white); }
-        .name-glow { color:var(--red);text-shadow:0 0 40px rgba(230,57,70,0.7),0 0 80px rgba(230,57,70,0.3);display:block; }
+        .name-glow { color:var(--sky);text-shadow:0 0 40px var(--sky-glow),0 0 80px rgba(135,206,235,0.3);display:block; }
         .small-sub { font-family:var(--ff-serif);font-size:clamp(0.9rem,2.5vw,1.2rem);color:var(--muted);font-style:italic; }
 
-        .shayri-card { background:linear-gradient(160deg,rgba(60,10,25,0.7) 0%,rgba(20,5,15,0.8) 100%);
-          border:1px solid rgba(230,57,70,0.35);border-radius:24px;padding:44px 36px;backdrop-filter:blur(14px);
-          box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 40px rgba(230,57,70,0.15),0 0 0 1px rgba(255,100,120,0.08) inset;
+        .shayri-card { background:linear-gradient(160deg,rgba(10,25,50,0.65) 0%,rgba(20,5,30,0.8) 100%);
+          border:1px solid rgba(135,206,235,0.30);border-radius:24px;padding:44px 36px;backdrop-filter:blur(14px);
+          box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 40px rgba(135,206,235,0.12),0 0 0 1px rgba(135,206,235,0.06) inset;
           display:flex;flex-direction:column;align-items:center;gap:4px;width:100%;max-width:560px; }
-        .shayri-ornament { font-size:1.2rem;color:var(--red);margin:8px 0;opacity:0.7; }
+        .shayri-ornament { font-size:1.2rem;color:var(--sky);margin:8px 0;opacity:0.7; }
         .shayri-ornament.flip { transform:rotate(180deg); }
         .shayri-line { font-family:var(--ff-serif);font-size:clamp(1.1rem,3.5vw,1.55rem);line-height:1.9;font-style:italic;font-weight:600;
           background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 8px rgba(255,120,120,0.3)); }
-        .sl1{background-image:linear-gradient(90deg,#ff9a9e,#fecfef,#ff6b9d);}
-        .sl2{background-image:linear-gradient(90deg,#f7971e,#ffd200,#f7971e);}
-        .sl3{background-image:linear-gradient(90deg,#a18cd1,#fbc2eb,#f77062);}
-        .sl4{background-image:linear-gradient(90deg,#43e97b,#38f9d7,#43e97b);}
-        .shayri-by { font-family:var(--ff-script);font-size:clamp(1.4rem,4vw,2rem);color:var(--red);margin-top:12px; }
+        .sl1{background-image:linear-gradient(90deg,#87ceeb,#b8e8ff,#5bc8f5);}
+        .sl2{background-image:linear-gradient(90deg,#ff9a9e,#fecfef,#ff6b9d);}
+        .sl3{background-image:linear-gradient(90deg,#87ceeb,#e0c3fc,#5bc8f5);}
+        .sl4{background-image:linear-gradient(90deg,#5bc8f5,#87ceeb,#b8e8ff);}
+        .shayri-by { font-family:var(--ff-script);font-size:clamp(1.4rem,4vw,2rem);color:var(--sky);margin-top:12px; }
 
         .feeling { font-family:var(--ff-serif);font-size:clamp(1.1rem,3.5vw,1.7rem);font-style:italic;line-height:1.8;font-weight:600;
           background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent; }
-        .feeling.reveal-up.d1{background-image:linear-gradient(90deg,#ff9a9e,#fecfef,#ff6b9d);}
-        .feeling.reveal-up.d2{background-image:linear-gradient(90deg,#f7971e,#ffd200,#f7971e);}
-        .feeling.reveal-up.d3{background-image:linear-gradient(90deg,#a18cd1,#fbc2eb,#ff9a9e);}
+        .feeling.reveal-up.d1{background-image:linear-gradient(90deg,#87ceeb,#b8e8ff,#5bc8f5);}
+        .feeling.reveal-up.d2{background-image:linear-gradient(90deg,#ff9a9e,#fecfef,#ff6b9d);}
+        .feeling.reveal-up.d3{background-image:linear-gradient(90deg,#87ceeb,#e0c3fc,#5bc8f5);}
         .divider-rose { font-size:1.4rem;letter-spacing:12px;margin-top:8px;opacity:0.8; }
 
         .letter-wrap { background:var(--card-bg);border:1px solid var(--card-br);border-radius:20px;padding:28px 28px 20px;
@@ -323,35 +325,35 @@ export default function Home() {
         @keyframes bwShimmer{from{opacity:0.85;}to{opacity:1;}}
 
         .photo-frame { width:100%;max-width:min(640px,92vw);border-radius:20px;overflow:hidden;
-          border:2px solid rgba(230,57,70,0.45);
-          box-shadow:0 0 0 1px rgba(255,255,255,0.05) inset,0 0 60px rgba(230,57,70,0.25),0 24px 60px rgba(0,0,0,0.7); }
+          border:2px solid rgba(135,206,235,0.55);
+          box-shadow:0 0 0 1px rgba(255,255,255,0.05) inset,0 0 60px rgba(135,206,235,0.20),0 0 30px rgba(230,57,70,0.15),0 24px 60px rgba(0,0,0,0.7); }
         .photo-img { width:100%;height:auto;max-height:66vh;object-fit:contain;display:block;background:#0a0a0a; }
-        .photo-caption { font-family:var(--ff-script);font-size:clamp(1.3rem,4vw,2rem);color:var(--red);text-shadow:0 0 20px rgba(230,57,70,0.4);margin-top:6px; }
+        .photo-caption { font-family:var(--ff-script);font-size:clamp(1.3rem,4vw,2rem);color:var(--sky);text-shadow:0 0 20px var(--sky-glow);margin-top:6px; }
 
         .floating-hearts { position:absolute;inset:0;pointer-events:none;overflow:hidden; }
         .fh { position:absolute;bottom:-10%;opacity:0;animation:floatHeart linear infinite; }
         @keyframes floatHeart{0%{opacity:0;transform:translateY(0) scale(0.8);}10%{opacity:0.8;}90%{opacity:0.4;}100%{opacity:0;transform:translateY(-110vh) scale(1.2);}}
         .proposal-pre { font-family:var(--ff-script);font-size:clamp(2rem,7vw,3.5rem);color:var(--muted); }
         .proposal-text { font-family:var(--ff-serif);font-size:clamp(1.8rem,7vw,4rem);font-weight:700;color:var(--white);line-height:1.2; }
-        .proposal-text span { color:var(--red);text-shadow:0 0 30px rgba(230,57,70,0.6); }
+        .proposal-text span { color:var(--sky);text-shadow:0 0 30px var(--sky-glow); }
         .proposal-ring { font-size:3.5rem;animation:spinRing 3s ease-in-out infinite; }
         @keyframes spinRing{0%,100%{transform:rotate(-15deg) scale(1);}50%{transform:rotate(15deg) scale(1.15);}}
         .proposal-sub { font-family:var(--ff-serif);font-size:clamp(1rem,3.5vw,1.5rem);color:var(--muted);font-style:italic; }
 
         .final-shayri { font-family:var(--ff-serif);font-size:clamp(1.1rem,3.5vw,1.7rem);font-style:italic;line-height:2;text-align:center;font-weight:600; }
-        .final-shayri p:nth-child(1){background:linear-gradient(90deg,#ff9a9e,#fecfef,#ff6b9d);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-        .final-shayri p:nth-child(2){background:linear-gradient(90deg,#f7971e,#ffd200,#f7971e);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-        .final-sign { font-family:var(--ff-script);font-size:clamp(1.6rem,5vw,2.5rem);color:var(--red);text-shadow:0 0 20px rgba(230,57,70,0.4); }
+        .final-shayri p:nth-child(1){background:linear-gradient(90deg,#87ceeb,#b8e8ff,#5bc8f5);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+        .final-shayri p:nth-child(2){background:linear-gradient(90deg,#ff9a9e,#fecfef,#ff6b9d);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+        .final-sign { font-family:var(--ff-script);font-size:clamp(1.6rem,5vw,2.5rem);color:var(--sky);text-shadow:0 0 20px var(--sky-glow); }
         .replay-btn { background:transparent;border:1px solid rgba(255,255,255,0.2);color:var(--muted);padding:10px 28px;
           border-radius:30px;font-family:var(--ff-sans);font-size:0.88rem;cursor:pointer;letter-spacing:0.5px;
           transition:all 0.3s ease;margin-top:8px; }
         .replay-btn:hover,.replay-btn:active{border-color:var(--red);color:var(--red);background:rgba(230,57,70,0.08);}
-        .chat-cta { display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#1a1a2e,#2a1a2e);
-          border:1px solid rgba(230,57,70,0.5);color:var(--white);text-decoration:none;padding:12px 26px;border-radius:50px;
+        .chat-cta { display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#0d1a2e,#1a1a2e);
+          border:1px solid rgba(135,206,235,0.5);color:var(--white);text-decoration:none;padding:12px 26px;border-radius:50px;
           font-family:var(--ff-sans);font-size:0.9rem;font-weight:500;letter-spacing:0.3px;margin-top:4px;
           box-shadow:0 4px 24px rgba(230,57,70,0.25);transition:all 0.3s ease; }
-        .chat-cta:hover,.chat-cta:active{background:linear-gradient(135deg,#2a1a2e,#3a1a2e);border-color:var(--red);box-shadow:0 4px 32px rgba(230,57,70,0.45);transform:translateY(-1px);}
-        .chat-cta-dp { width:28px;height:28px;border-radius:50%;object-fit:cover;border:1px solid var(--red); }
+        .chat-cta:hover,.chat-cta:active{background:linear-gradient(135deg,#1a2a3e,#2a2a3e);border-color:var(--sky);box-shadow:0 4px 32px var(--sky-glow);transform:translateY(-1px);}
+        .chat-cta-dp { width:28px;height:28px;border-radius:50%;object-fit:cover;border:1px solid var(--sky); }
       `}</style>
 
       <canvas ref={canvasRef} id="hearts" style={{ position: "fixed", inset: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 0 }} />
@@ -362,7 +364,7 @@ export default function Home() {
       <div className={`overlay${overlayHidden ? " hidden" : ""}`} style={{ zIndex: 100 }}>
         <div className="ov-box">
           <div className="ov-ring"><div className="ov-heart-big">❤️</div></div>
-          <h1 className="ov-name">Prince <em>&amp;</em> Ishu</h1>
+          <h1 className="ov-name">Prince <em>&amp;</em> <span className="ishu-sky">Ishu</span></h1>
           <p className="ov-tagline">Ek dil ki ek khaas baat...</p>
           <button className="start-btn" onClick={handleStart}>
             <span style={{ fontSize: "1.2rem" }}>💌</span>
