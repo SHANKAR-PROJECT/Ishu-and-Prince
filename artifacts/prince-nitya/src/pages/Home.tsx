@@ -2,10 +2,13 @@ import { useEffect, useRef, useState } from "react";
 
 const SCENES = [
   { id: "sc1",  dur: 3200,  setup: null },
-  { id: "sc2",  dur: 5000,  setup: null },
-  { id: "sc3",  dur: 3800,  setup: null },
-  { id: "sc4",  dur: 6500,  setup: "typewriter" },
+  { id: "sc2",  dur: 5500,  setup: null },
+  { id: "sc2b", dur: 6000,  setup: null },
+  { id: "sc3",  dur: 4200,  setup: null },
+  { id: "sc4",  dur: 7500,  setup: "typewriter" },
   { id: "sc5",  dur: 7000,  setup: "shayriLines" },
+  { id: "sc5b", dur: 7500,  setup: "shayriLines2" },
+  { id: "sc5c", dur: 5000,  setup: null },
   { id: "sc6",  dur: 3200,  setup: null },
   { id: "sc7",  dur: 3800,  setup: null },
   { id: "sc7b", dur: 3800,  setup: null },
@@ -18,7 +21,7 @@ const SCENES = [
   { id: "sc10", dur: 0,     setup: null },
 ];
 
-const TYPE_MSG = "Ishu... Jab se mili ho tum, laga jaise andheri raat mein chand nikal aaya. Tumhara hasna, tumhara gussa, tumhari har ada — sab mujhe pagal kar deta hai. Tum ho toh sab kuch hai... Tum nahi toh kuch bhi nahi.";
+const TYPE_MSG = "Ishu... Shayad tujhe khabar bhi nahi, lekin teri ek jhalkani ne meri poori duniya badal di. Main ek taraf se hi sahi — par sacchi mohabbat karta hoon. Na koi dikhawa, na koi jhooth. Bas ye dil hai jo sirf tera naam jaanta hai... aur sirf tera naam leta hai.";
 
 export default function Home() {
   const [overlayHidden, setOverlayHidden] = useState(false);
@@ -26,6 +29,7 @@ export default function Home() {
   const [letterText, setLetterText] = useState("");
   const [cursorHidden, setCursorHidden] = useState(false);
   const [s5Shown, setS5Shown] = useState<string[]>([]);
+  const [s5bShown, setS5bShown] = useState<string[]>([]);
   const [floatHearts, setFloatHearts] = useState<any[]>([]);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -128,6 +132,16 @@ export default function Home() {
     });
   }
 
+  function setupShayriLines2() {
+    setS5bShown([]);
+    const ids = ["s5bl1", "s5bl2", "s5bl3", "s5bl4"];
+    ids.forEach((id, i) => {
+      setTimeout(() => {
+        setS5bShown(prev => [...prev, id]);
+      }, 500 + i * 1600);
+    });
+  }
+
   function setupFloatHearts() {
     const emojis = ["❤️", "💙", "🌹", "💕", "🩵", "✨", "💝", "🫧", "💖", "🌸"];
     const hearts = Array.from({ length: 18 }, (_, i) => ({
@@ -148,6 +162,7 @@ export default function Home() {
 
     if (s.setup === "typewriter") setupTypewriter();
     else if (s.setup === "shayriLines") setupShayriLines();
+    else if (s.setup === "shayriLines2") setupShayriLines2();
     else if (s.setup === "floatHearts") setupFloatHearts();
 
     if (s.dur > 0) {
@@ -165,6 +180,7 @@ export default function Home() {
     setLetterText("");
     setCursorHidden(false);
     setS5Shown([]);
+    setS5bShown([]);
     setFloatHearts([]);
     currentIdxRef.current = -1;
     showScene(0);
@@ -237,9 +253,12 @@ export default function Home() {
 
         #sc1  { background:radial-gradient(ellipse at 50% 40%,#0d2a4a 0%,#071828 50%,#020e1a 100%); }
         #sc2  { background:radial-gradient(ellipse at 50% 40%,#062038 0%,#0a1828 45%,#030c18 100%); }
+        #sc2b { background:radial-gradient(ellipse at 50% 45%,#2a0a18 0%,#0d1a2e 45%,#020c18 100%); }
         #sc3  { background:radial-gradient(ellipse at 50% 55%,#0a2035 0%,#071525 40%,#020c18 100%); }
         #sc4  { background:radial-gradient(ellipse at 50% 50%,#05152a 0%,#0a1a30 45%,#030e1e 100%); }
         #sc5  { background:radial-gradient(ellipse at 50% 45%,#3d0a10 0%,#0a1828 50%,#030c16 100%); }
+        #sc5b { background:radial-gradient(ellipse at 50% 45%,#0a1a30 0%,#1a0a20 50%,#020c18 100%); }
+        #sc5c { background:radial-gradient(ellipse at 50% 45%,#1a0a30 0%,#0a1828 50%,#020c18 100%); }
         #sc6  { background:radial-gradient(ellipse at 50% 50%,#3d0a0f 0%,#071828 50%,#020d18 100%); }
         #sc7  { background:radial-gradient(ellipse at 50% 40%,#062035 0%,#0a1c30 45%,#030e1c 100%); }
         #sc7b { background:radial-gradient(ellipse at 50% 40%,#062035 0%,#0a1c30 45%,#030e1c 100%); }
@@ -312,6 +331,29 @@ export default function Home() {
         #s5l2{background-image:linear-gradient(90deg,#ffd200,#f7971e,#ffd200);}
         #s5l3{background-image:linear-gradient(90deg,#e040fb,#ff6b9d,#ff8a65);}
         #s5l4{background-image:linear-gradient(90deg,#40c4ff,#7c4dff,#e040fb);}
+
+        .s5bline { font-family:var(--ff-serif);font-size:clamp(1.1rem,3.8vw,1.8rem);font-style:italic;font-weight:600;line-height:2;
+          opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease;
+          background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent; }
+        .s5bline.show{opacity:1;transform:translateY(0);}
+        #s5bl1{background-image:linear-gradient(90deg,#87ceeb,#b8e8ff,#5bc8f5);}
+        #s5bl2{background-image:linear-gradient(90deg,#ff9a9e,#fecfef,#ff6b9d);}
+        #s5bl3{background-image:linear-gradient(90deg,#f7971e,#ffd200,#f7971e);}
+        #s5bl4{background-image:linear-gradient(90deg,#87ceeb,#e0c3fc,#ff9a9e);}
+
+        .confession-card { width:100%;max-width:560px;background:linear-gradient(145deg,rgba(10,20,40,0.85) 0%,rgba(25,5,30,0.9) 100%);
+          border:1px solid rgba(135,206,235,0.25);border-radius:28px;padding:38px 32px;backdrop-filter:blur(20px);
+          box-shadow:0 0 0 1px rgba(135,206,235,0.06) inset,0 0 60px rgba(135,206,235,0.08),0 0 40px rgba(230,57,70,0.08),0 30px 80px rgba(0,0,0,0.6);
+          display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center; }
+        .cf-icon { font-size:2.8rem;animation:cfPulse 2s ease-in-out infinite; }
+        @keyframes cfPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.12);}}
+        .cf-title { font-family:var(--ff-script);font-size:clamp(1.8rem,6vw,2.8rem);
+          background:linear-gradient(90deg,#87ceeb,#e0c3fc,#ff9a9e);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent; }
+        .cf-line { font-family:var(--ff-serif);font-size:clamp(1rem,3vw,1.35rem);line-height:1.9;font-style:italic;font-weight:600;color:var(--soft); }
+        .cf-line span { color:var(--sky);-webkit-text-fill-color:var(--sky); }
+        .cf-line strong { color:#ff9a9e;-webkit-text-fill-color:#ff9a9e; }
+        .cf-divider { width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--sky),transparent);margin:4px 0; }
+        .cf-sign { font-family:var(--ff-script);font-size:clamp(1.5rem,5vw,2.2rem);color:var(--sky);text-shadow:0 0 20px var(--sky-glow); }
 
         .big-words-pre { font-family:var(--ff-script);font-size:clamp(2rem,7vw,3.5rem);color:var(--muted);margin-bottom:8px; }
         .big-words { display:flex;flex-wrap:wrap;gap:12px;justify-content:center; }
@@ -391,12 +433,27 @@ export default function Home() {
           <div className="sc-inner">
             <div className="shayri-card reveal-scale">
               <div className="shayri-ornament">✦</div>
-              <p className="shayri-line sl1 reveal-up d1">"Tum kali ho andheron ki,</p>
-              <p className="shayri-line sl2 reveal-up d2"> Laal gulab sa rang tumhara,</p>
-              <p className="shayri-line sl3 reveal-up d3"> Koi nahi is duniya mein,</p>
-              <p className="shayri-line sl4 reveal-up d4"> Jo ho jaaye tum sa pyara..."</p>
+              <p className="shayri-line sl1 reveal-up d1">"Tujhe khabar nahi meri aankhon ki baat ka,</p>
+              <p className="shayri-line sl2 reveal-up d2"> main ek taraf se hi sahi, par dil sachcha hai,</p>
+              <p className="shayri-line sl3 reveal-up d3"> Tu chand hai meri kali raaton ka,</p>
+              <p className="shayri-line sl4 reveal-up d4"> aur tera intezaar mera har pal sachcha hai..."</p>
               <div className="shayri-ornament flip">✦</div>
               <p className="shayri-by reveal-up d5">— Prince Malhotra 🖤</p>
+            </div>
+          </div>
+        </div>
+
+        {/* SC2b */}
+        <div className={`scene${activeScene === "sc2b" ? " active" : ""}`} id="sc2b">
+          <div className="sc-inner">
+            <div className="shayri-card reveal-scale">
+              <div className="shayri-ornament">❤️</div>
+              <p className="shayri-line sl1 reveal-up d1">"Maine maanga tha sirf ek khwaab,</p>
+              <p className="shayri-line sl3 reveal-up d2"> teri ek nazar, teri ek muskan ka jawaab,</p>
+              <p className="shayri-line sl2 reveal-up d3"> Ek tarfa sahi, par sachchi hai ye mohabbat,</p>
+              <p className="shayri-line sl4 reveal-up d4"> Tu bhi kabhi samjhe — yahi meri ibaadat..."</p>
+              <div className="shayri-ornament flip">❤️</div>
+              <p className="shayri-by reveal-up d5">— Sirf tere liye, Ishu 🩵</p>
             </div>
           </div>
         </div>
@@ -404,10 +461,10 @@ export default function Home() {
         {/* SC3 */}
         <div className={`scene${activeScene === "sc3" ? " active" : ""}`} id="sc3">
           <div className="sc-inner">
-            <p className="feeling reveal-up d1">Socha tha kab tha koi aisa aayega...</p>
-            <p className="feeling reveal-up d2">Jo meri duniya roshan kar jayega...</p>
-            <p className="feeling reveal-up d3">Tum aayi aur meri zindagi badal gayi.</p>
-            <div className="divider-rose reveal-up d4">🌹 🌹 🌹</div>
+            <p className="feeling reveal-up d1">Tune kabhi meri taraf dekha nahi yaar...</p>
+            <p className="feeling reveal-up d2">Par maine apni aankhein band hi na ki...</p>
+            <p className="feeling reveal-up d3">Ek tarfa pyar karta hoon, sharminda nahi.</p>
+            <div className="divider-rose reveal-up d4">🩵 🌹 🩵</div>
           </div>
         </div>
 
@@ -428,10 +485,41 @@ export default function Home() {
         {/* SC5 */}
         <div className={`scene${activeScene === "sc5" ? " active" : ""}`} id="sc5">
           <div className="sc-inner sc5-inner">
-            <p className={`s5line${s5Shown.includes("s5l1") ? " show" : ""}`} id="s5l1">❝ Mohabbat karna seekha tumse...</p>
-            <p className={`s5line${s5Shown.includes("s5l2") ? " show" : ""}`} id="s5l2">Dard bhi tumse hi sehna seekha...</p>
-            <p className={`s5line${s5Shown.includes("s5l3") ? " show" : ""}`} id="s5l3">Har subah tera chehra yaad aata hai,</p>
-            <p className={`s5line${s5Shown.includes("s5l4") ? " show" : ""}`} id="s5l4">Har raat tere sapne lekar sota hoon... ❞</p>
+            <p className={`s5line${s5Shown.includes("s5l1") ? " show" : ""}`} id="s5l1">❝ Ek taraf se hi sahi, mohabbat toh hai...</p>
+            <p className={`s5line${s5Shown.includes("s5l2") ? " show" : ""}`} id="s5l2">Tune jaana nahi, par dil ne sab kuch kaha...</p>
+            <p className={`s5line${s5Shown.includes("s5l3") ? " show" : ""}`} id="s5l3">Har subah tujhse hi shuru hoti hai meri,</p>
+            <p className={`s5line${s5Shown.includes("s5l4") ? " show" : ""}`} id="s5l4">Har raat tere naam pe khatam hoti hai... ❞</p>
+          </div>
+        </div>
+
+        {/* SC5b */}
+        <div className={`scene${activeScene === "sc5b" ? " active" : ""}`} id="sc5b">
+          <div className="sc-inner sc5-inner">
+            <p className={`s5bline${s5bShown.includes("s5bl1") ? " show" : ""}`} id="s5bl1">❝ Tujhe pata nahi par teri ek jhalkani ne,</p>
+            <p className={`s5bline${s5bShown.includes("s5bl2") ? " show" : ""}`} id="s5bl2">Meri poori duniya ko badal diya hai,</p>
+            <p className={`s5bline${s5bShown.includes("s5bl3") ? " show" : ""}`} id="s5bl3">Bata de zara — kaise bhulaun tujhe,</p>
+            <p className={`s5bline${s5bShown.includes("s5bl4") ? " show" : ""}`} id="s5bl4">Jab teri yaad ne mujhe apna bana liya hai... ❞</p>
+          </div>
+        </div>
+
+        {/* SC5c — Confession Card */}
+        <div className={`scene${activeScene === "sc5c" ? " active" : ""}`} id="sc5c">
+          <div className="sc-inner">
+            <div className="confession-card reveal-scale">
+              <div className="cf-icon">🩵</div>
+              <p className="cf-title reveal-up d1">Ishu, sun le...</p>
+              <div className="cf-divider reveal-up d2" />
+              <p className="cf-line reveal-up d2">
+                Main jaanta hoon ye <span>ek tarfa</span> hai,<br />
+                par dil ko koi rok nahi saka.
+              </p>
+              <p className="cf-line reveal-up d3">
+                <strong>Tujhse pyar</strong> karta hoon —<br />
+                aaj nahi toh kal, tu bhi jaanegi.
+              </p>
+              <div className="cf-divider reveal-up d4" />
+              <p className="cf-sign reveal-up d5">— Tera Prince 🌹</p>
+            </div>
           </div>
         </div>
 
