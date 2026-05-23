@@ -1,9 +1,0 @@
-.replit
-replit.nix
-.cache/
-.local/
-.agents/
-.git/
-.vscode/
-customize.json
-README.md

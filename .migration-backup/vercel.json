@@ -1,20 +1,15 @@
 {
-  "version": 2,
-  "builds": [
-    { "src": "server.js", "use": "@vercel/node" },
-    { "src": "index.html", "use": "@vercel/static" },
-    { "src": "chat.html", "use": "@vercel/static" },
-    { "src": "img/**", "use": "@vercel/static" },
-    { "src": "style/**", "use": "@vercel/static" },
-    { "src": "script/**", "use": "@vercel/static" }
-  ],
-  "routes": [
-    { "src": "/api/(.*)", "dest": "/server.js" },
-    { "src": "/img/(.*)", "dest": "/img/$1" },
-    { "src": "/style/(.*)", "dest": "/style/$1" },
-    { "src": "/script/(.*)", "dest": "/script/$1" },
-    { "src": "/chat", "dest": "/chat.html" },
-    { "src": "/chat.html", "dest": "/chat.html" },
-    { "src": "/", "dest": "/index.html" }
+  "buildCommand": "pnpm install && pnpm --filter @workspace/prince-nitya run build",
+  "outputDirectory": "artifacts/prince-nitya/dist/public",
+  "installCommand": "pnpm install",
+  "functions": {
+    "api/chat.js": {
+      "runtime": "nodejs20.x",
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    { "source": "/api/chat", "destination": "/api/chat" },
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
 }
