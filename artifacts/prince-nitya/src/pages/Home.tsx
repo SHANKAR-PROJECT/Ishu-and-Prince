@@ -192,9 +192,9 @@ export default function Home() {
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
-          --bg: #07090f; --red: #e63946; --red-deep: #9b1d20;
+          --bg: #04111e; --red: #e63946; --red-deep: #9b1d20;
           --red-glow: rgba(230,57,70,0.45); --gold: #f4d03f;
-          --sky: #87ceeb; --sky-deep: #4a9eca; --sky-glow: rgba(135,206,235,0.50);
+          --sky: #87ceeb; --sky-deep: #4a9eca; --sky-glow: rgba(135,206,235,0.55);
           --white: #ffffff; --soft: rgba(255,255,255,0.80);
           --muted: rgba(255,255,255,0.40); --card-bg: rgba(255,255,255,0.04);
           --card-br: rgba(255,255,255,0.10);
@@ -205,15 +205,15 @@ export default function Home() {
         html, body { width:100%; height:100%; background:var(--bg); overflow:hidden; }
 
         .overlay { position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;
-          background:radial-gradient(ellipse at 50% 40%,#350a20 0%,#1a0510 40%,#050108 100%);
+          background:radial-gradient(ellipse at 50% 40%,#0d2a4a 0%,#071828 50%,#020d16 100%);
           transition:opacity 0.8s ease,visibility 0.8s ease; }
         .overlay.hidden { opacity:0;visibility:hidden;pointer-events:none; }
         .ov-box { text-align:center;padding:24px 20px; }
-        .ov-ring { width:90px;height:90px;border-radius:50%;border:2px solid rgba(230,57,70,0.5);
+        .ov-ring { width:90px;height:90px;border-radius:50%;border:2px solid rgba(135,206,235,0.6);
           display:flex;align-items:center;justify-content:center;margin:0 auto 24px;
           animation:ringPulse 2s ease-in-out infinite;
-          box-shadow:0 0 30px var(--red-glow),inset 0 0 20px rgba(230,57,70,0.1); }
-        @keyframes ringPulse { 0%,100%{transform:scale(1);box-shadow:0 0 30px var(--red-glow);}50%{transform:scale(1.06);box-shadow:0 0 55px var(--red-glow);} }
+          box-shadow:0 0 30px var(--sky-glow),inset 0 0 20px rgba(135,206,235,0.15); }
+        @keyframes ringPulse { 0%,100%{transform:scale(1);box-shadow:0 0 30px var(--sky-glow);}50%{transform:scale(1.06);box-shadow:0 0 55px var(--sky-glow);} }
         .ov-heart-big { font-size:2.4rem;animation:hb 1.4s ease-in-out infinite; }
         @keyframes hb { 0%,100%{transform:scale(1);}30%{transform:scale(1.3);}60%{transform:scale(1);}80%{transform:scale(1.15);} }
         .ov-name { font-family:var(--ff-script);font-size:clamp(2.8rem,11vw,5.5rem);color:var(--white);
@@ -235,21 +235,21 @@ export default function Home() {
         .scene.active { opacity:1;pointer-events:auto; }
         .sc-inner { width:100%;max-width:680px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px; }
 
-        #sc1  { background:radial-gradient(ellipse at 50% 40%,#2a0a2e 0%,#1a0510 40%,#050208 100%); }
-        #sc2  { background:radial-gradient(ellipse at 50% 40%,#071828 0%,#0d0d22 45%,#040408 100%); }
-        #sc3  { background:radial-gradient(ellipse at 50% 55%,#1e0828 0%,#2a0d10 40%,#07020a 100%); }
-        #sc4  { background:radial-gradient(ellipse at 50% 50%,#050d1f 0%,#1a0a1e 45%,#04050e 100%); }
-        #sc5  { background:radial-gradient(ellipse at 50% 45%,#2d0a10 0%,#1a0820 40%,#060208 100%); }
-        #sc6  { background:radial-gradient(ellipse at 50% 50%,#3d0a0f 0%,#1f0310 50%,#070208 100%); }
-        #sc7  { background:radial-gradient(ellipse at 50% 40%,#1e0830 0%,#2f0812 45%,#060208 100%); }
-        #sc7b { background:radial-gradient(ellipse at 50% 40%,#1e0830 0%,#2f0812 45%,#060208 100%); }
-        #sc7c { background:radial-gradient(ellipse at 50% 40%,#1e0830 0%,#2f0812 45%,#060208 100%); }
-        #sc8  { background:radial-gradient(ellipse at 50% 40%,#1a0830 0%,#280510 45%,#060209 100%); }
-        #sc8b { background:radial-gradient(ellipse at 50% 40%,#1a0830 0%,#280510 45%,#060209 100%); }
-        #sc8c { background:radial-gradient(ellipse at 50% 40%,#1a0830 0%,#280510 45%,#060209 100%); }
-        #sc8d { background:radial-gradient(ellipse at 50% 40%,#1a0830 0%,#280510 45%,#060209 100%); }
-        #sc9  { background:radial-gradient(ellipse at 50% 45%,#4a0510 0%,#2a0310 50%,#070208 100%); }
-        #sc10 { background:radial-gradient(ellipse at 50% 50%,#220828 0%,#2a0510 45%,#060208 100%); }
+        #sc1  { background:radial-gradient(ellipse at 50% 40%,#0d2a4a 0%,#071828 50%,#020e1a 100%); }
+        #sc2  { background:radial-gradient(ellipse at 50% 40%,#062038 0%,#0a1828 45%,#030c18 100%); }
+        #sc3  { background:radial-gradient(ellipse at 50% 55%,#0a2035 0%,#071525 40%,#020c18 100%); }
+        #sc4  { background:radial-gradient(ellipse at 50% 50%,#05152a 0%,#0a1a30 45%,#030e1e 100%); }
+        #sc5  { background:radial-gradient(ellipse at 50% 45%,#3d0a10 0%,#0a1828 50%,#030c16 100%); }
+        #sc6  { background:radial-gradient(ellipse at 50% 50%,#3d0a0f 0%,#071828 50%,#020d18 100%); }
+        #sc7  { background:radial-gradient(ellipse at 50% 40%,#062035 0%,#0a1c30 45%,#030e1c 100%); }
+        #sc7b { background:radial-gradient(ellipse at 50% 40%,#062035 0%,#0a1c30 45%,#030e1c 100%); }
+        #sc7c { background:radial-gradient(ellipse at 50% 40%,#062035 0%,#0a1c30 45%,#030e1c 100%); }
+        #sc8  { background:radial-gradient(ellipse at 50% 40%,#07203a 0%,#0a1c2e 45%,#030e1a 100%); }
+        #sc8b { background:radial-gradient(ellipse at 50% 40%,#07203a 0%,#0a1c2e 45%,#030e1a 100%); }
+        #sc8c { background:radial-gradient(ellipse at 50% 40%,#07203a 0%,#0a1c2e 45%,#030e1a 100%); }
+        #sc8d { background:radial-gradient(ellipse at 50% 40%,#07203a 0%,#0a1c2e 45%,#030e1a 100%); }
+        #sc9  { background:radial-gradient(ellipse at 50% 45%,#4a0510 0%,#071828 50%,#020d18 100%); }
+        #sc10 { background:radial-gradient(ellipse at 50% 50%,#0a2038 0%,#071828 45%,#030d18 100%); }
 
         .reveal-up { opacity:0;transform:translateY(30px); }
         .reveal-scale { opacity:0;transform:scale(0.85); }
